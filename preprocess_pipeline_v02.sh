@@ -111,3 +111,4 @@ cd ${scripts_dir}
 #   echo ----------------------------
 #   chmod 554 ${rawdata_dir}/${subj}/*
 # done
+cd ${cwd}
