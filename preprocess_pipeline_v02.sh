@@ -38,7 +38,7 @@ cd ${scripts_dir}
 #  echo !!!Start to heudiconv ${subj}!!!
 #  echo --------------------------------
 #   if [ ! -d ${rawdata_dir}/${subj} ]; then
-#      echo " ${subj} NO raw dicom;Exit now...... " 
+#      echo " ERROR:${subj} NO raw dicom;Exit now...... " 
 #      exit
 #   fi
 #   for sess in 01 02 03
@@ -65,7 +65,7 @@ cd ${scripts_dir}
 #    for sess in 01 02 03
 #    do
 #      if [ ! -d ${proc_dir}/tempDCM/${subj}/ses-${sess} ]; then
-#          ./video_02_copydcm_update.sh ${subj} ${proc_dir} ${rawdata_dir} ${sess}>${proc_dir}/logfiles/copydcm_${subj}_sess-${sess}.log 2>&1
+#          ./video_02_copydcm_update.sh ${subj} ${proc_dir} ${rawdata_dir} ${sess} ${mappingfile}>${proc_dir}/logfiles/copydcm_${subj}_sess-${sess}.log 2>&1
 #      else
 #           echo " ${subj} ses-${sess} EXISTS in tempDCM " 
 #      fi
