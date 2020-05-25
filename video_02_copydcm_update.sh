@@ -27,7 +27,7 @@ function this_copydcm() {
   # this identiies the source dcm directory corresponding to this session. sometimes denoted like _1, sometimes like _01.
 	# basically it looks in the raw data dir and looks for the Video_1/2 directory for the current subject.
 	# IMPORTANT NOTE: when the IRF makes a typo in the name of the directory, this code can fail. For instance if they type VIDeo instead of Video.
-	sourcedir=`ls -d ${rawdir}/${subjID}/*Video**_{0${session},${session}}* 2>/dev/null`
+	sourcedir=`ls -d ${rawdir}/${subjID}/*Video**_{${session#?},${session}}* 2>/dev/null`
 	
 	# new 12/20/17 only take ODD dcms for composite T1 since psn dcms are combined/duplicated and lower quality
 	# (this is according to instructions from Hu)
@@ -160,9 +160,9 @@ for (( i=0; i<run_num; i++ )); do
 	echo "Ready to copy ${subjID} for ${all_run_names_arr[$i]} : session${this_session} series $this_series..."
 	this_destdir=${tempdicomdir}/${subjID}/ses-${this_session}
 
-  if ( [ ! -d ${this_destdir} ] && [ ! -z ${this_session} ] ) ; then
-    mkdir -p ${this_destdir}
-  fi
+        if ( [ ! -d ${this_destdir} ] && [ ! -z ${this_session} ] ) ; then
+           mkdir -p ${this_destdir}
+        fi
 
 	# if we have 0 in the relevant cell in the mapping .csv, skip it -- that means we do not have data for this run for this subject.
 	if [ "${this_series}" = "0" ] ; then
