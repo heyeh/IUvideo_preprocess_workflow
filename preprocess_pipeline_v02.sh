@@ -3,6 +3,7 @@ proc_dir=XX/XX #where you put BIDs data and other necessary files
 scripts_dir=XX/scripts #where you put all your scripts
 subject_list=$( cat ${scripts_dir}/subjects.list ) #a list of subjects id
 rawdata_dir=XX/XX # your dicom directory
+mappingfile=XXX.csv # your log mapping file
 
 # mkdir -p ${proc_dir}/{Nifti,derivatives,templates,logfiles,tempDCM}
 
@@ -37,7 +38,7 @@ cd ${scripts_dir}
 #  echo --------------------------------
 #  echo !!!Start to heudiconv ${subj}!!!
 #  echo --------------------------------
-#   if [ ! -d ${rawdata_dir}/${subj} ]; then
+#   if [ ! -d ${rawdata_dir}/${subj}/*Video* ]; then
 #      echo " ERROR:${subj} NO raw dicom;Exit now...... " 
 #      exit
 #   fi
