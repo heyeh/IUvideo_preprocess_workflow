@@ -92,13 +92,14 @@ cd ${scripts_dir}
 #  do
 #     if [ ! -d ${proc_dir}/Nifti/sub-${subj}/ses-${sess} ]; then
 #        ./video_03_dcm2nii.sh ${subj} ${proc_dir} ${sess} > ${proc_dir}/logfiles/dcm2nii_${subj}_sess-${sess}.log 2>&1
-#        ./video_04_assignFieldmap.sh ${subj} ${proc_dir} ${sess} > ${proc_dir}/logfiles/assignfmp_${subj}_sess-${sess}.log 2>&1
+#        ./video_04_assignFieldmap.sh ${subj} ${proc_dir}/Nifti ${sess} > ${proc_dir}/logfiles/assignfmp_${subj}_sess-${sess}.log 2>&1
 #     else
 #        echo " ${subj} ses-${sess} EXISTS in Nifti "
 #  done
 #done
-### run doublecheck.m again to see anything wrong. 
-### and mannually change IntendFor in the fieldmap_AP/PA.json file according to the correct log-sheet info.
+### Run doublecheck.m again to see anything wrong. 
+### and then mannually change IntendFor in the 
+### fieldmap_AP/PA.json file for those don't follow the common logic
 
 ### validate BIDs
 # docker run -ti --rm -v ${proc_dir}/Nifti:/data:ro bids/validator /data  > ${proc_dir}/derivatives/valid_report.txt 2>&1
