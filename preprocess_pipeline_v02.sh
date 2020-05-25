@@ -78,10 +78,14 @@ cd ${scripts_dir}
 #   echo ----------------------------
 #   echo !!!! Running heudiconv !!!!
 #   echo ----------------------------
-for subj in ${subject_list}
-do
+#for subj in ${subject_list}
+#do
 #    # if [ -d ${proc_dir}/Nifti/sub-${subj} ]; then
 #    #    echo " ${subj} exists in Nifti; Exit now...... "
+#    #    exit
+#    # fi
+#    # if [ ! -d ${proc_dir}/tempDCM/${subj} ]; then
+#    #    echo " ERROR: NO ${subj} in tempDCM; Exit now...... "
 #    #    exit
 #    # fi
 #  for sess in 01 02 03
@@ -92,11 +96,11 @@ do
 #     else
 #        echo " ${subj} ses-${sess} EXISTS in Nifti "
 #  done
-done
-## run doublecheck.m again to see anything wrong. 
-## and mannually change IntendFor in the fieldmap_AP/PA.json file according to the correct log-sheet info.
+#done
+### run doublecheck.m again to see anything wrong. 
+### and mannually change IntendFor in the fieldmap_AP/PA.json file according to the correct log-sheet info.
 
-## validate BIDs
+### validate BIDs
 # docker run -ti --rm -v ${proc_dir}/Nifti:/data:ro bids/validator /data  > ${proc_dir}/derivatives/valid_report.txt 2>&1
 ################################
 ## Limit access to dcm again  ##
