@@ -3,7 +3,7 @@ proc_dir=XX/XX #where you put BIDs data and other necessary files
 scripts_dir=XX/scripts #where you put all your scripts
 subject_list=$( cat ${scripts_dir}/subjects.list ) #a list of subjects id
 rawdata_dir=XX/XX # your dicom directory
-mappingfile=XXX.csv # your log mapping file
+mappingfile=XXX.csv # your log mapping file will be searched in $proc_dir/templates
 
 # mkdir -p ${proc_dir}/{Nifti,derivatives,templates,logfiles,tempDCM}
 
