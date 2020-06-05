@@ -33,7 +33,7 @@ function this_copydcm() {
 	# (this is according to instructions from Hu)
 	#
 	# in general, pad_series is going to take the series number (e.g. 23) and pad it to match the format in the filename (000023).
-	# since T1 composite requires taking only odd images, we can encode that in the pad_series variable as well.
+	# since T1 composite requires taking only odd images for IU special, we can encode that in the pad_series variable as well.
 	if [ "$runname" = "9_T1_c" ] ; then
 		pad_series=`printf %06d $series` # pad series to match filename format
 		pad_series="${pad_series}_*[13579].dcm"
