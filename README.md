@@ -5,12 +5,12 @@
 - heudiconv docker image
 ## Directory Structure
 > -- BIDS
->> -- Nifti
+>> -- Nifti: BIDs format nifti 
 >
->> -- tempDCM
+>> -- tempDCM: only dicom we need will be copied here
 >
->> -- templates
+>> -- templates: heuristic_update.py,initial_subs_runs_sess01.csv,initial_subs_runs_sess02.csv
 >
->> -- derivatives
+>> -- derivatives:tsv will be linked here
 >
 >> -- logfiles
