@@ -3,7 +3,7 @@ proc_dir=XX/BIDS #where you put BIDs data and other necessary files
 scripts_dir=XX/scripts #where you put all your scripts
 subject_list=$( cat ${scripts_dir}/subjects.list ) #a list of subjects id
 rawdata_dir=XX/XX # your dicom directory
-mappingfileName=XXX # input the content in { } as {initial_subs_runs}_sess01.csv --your log mapping file will be searched in $proc_dir/templates
+mappingfileName=XXX # input only the content in { } as {initial_subs_runs}_sess01.csv --your log mapping file will be searched in $proc_dir/templates
 
 # mkdir -p ${proc_dir}/{Nifti,derivatives,templates,logfiles,tempDCM}
 
@@ -53,6 +53,8 @@ cd ${scripts_dir}
 # done
 ###########################################################
 ## Step 3. Copy dcm to a tempory dir ${proc_dir}/tempDCM ##
+## NOTICE: video_02_copydcm_update.sh will copy the odd  ##
+## numbers of T1 dicom for IU scanner. You need to change it##
 ###########################################################
 # for subj in ${subject_list}
 # do
